@@ -1,0 +1,236 @@
+/*
+  MOBILE STYLES
+*/
+.headerOpaque {
+  /* What Its all about */
+
+  font-family: "futura-pt",sans-serif;
+  font-size: 12px;
+  line-height: 14px;
+  /* identical to box height */
+
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+
+  color: #FFFFFF;
+
+  opacity: 0.6;
+}
+
+.headerMain {
+  /* live video chat with santa */
+
+  font-family: "kepler-std",serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 28px;
+  line-height: 36px;
+  /* or 129% */
+
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+
+  color: #FFFFFF;
+}
+
+.bodyText {
+  /* Embark on an magical Elf guided Journey to the North Pole and enjoy a live video chat with Santa. The experience is guided by Elf Pickles, Dimples, Bazzle and Tinsel. */
+
+  font-family: "futura-pt",sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  /* or 150% */
+
+  letter-spacing: 0.01em;
+
+  color: #F2F2F2;
+}
+
+.watchTrailer {
+  /* Watch trailer */
+
+  font-family: "futura-pt",sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 21px;
+  letter-spacing: 0.01em;
+
+  color: #F2F2F2;
+}
+
+.headerRegular {
+  /* A reimagined timeless tradition from the safety of your own home */
+
+  font-family: "kepler-std",serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 32px;
+  /* or 133% */
+
+  letter-spacing: 0.03em;
+
+  color: #FFFFFF;
+}
+
+.carouselStatusText {
+  /* Part 1/8 */
+  font-family: "futura-pt",sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.01em;
+
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.carouselCurrentSlideText {
+  /* Part <THIS NUMBER>/8 */
+  font-size: 24px;
+}
+
+.carouselDurationText {
+  font-family: "futura-pt",sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height, or 150% */
+
+  letter-spacing: 0.01em;
+
+  color: #F2F2F2;
+}
+
+.reviewOpaqueText {
+  font-family: "futura-pt",sans-serif;
+  font-size: 12px;
+  line-height: 14px;
+  /* identical to box height */
+
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+
+  opacity: 0.6;
+}
+
+.reviewBodyText {
+  font-family: "futura-pt",sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  /* or 150% */
+
+  letter-spacing: 0.01em;
+
+  color: #FFFFFF;
+}
+
+.reviewNameText {
+  font-family: "futura-pt",sans-serif;
+  font-size: 12px;
+  line-height: 14px;
+  /* identical to box height */
+
+  letter-spacing: 0.02em;
+
+  color: #FFFFFF;
+}
+
+.videoThumbnailTitle {
+  font-family: "futura-pt",sans-serif;
+  font-size: 20px;
+  line-height: 23px;
+  /* identical to box height */
+
+  letter-spacing: 0.01em;
+
+  color: #FFFFFF;
+}
+
+.accordianContent {
+  font-family: "futura-pt",sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  /* or 150% */
+
+  letter-spacing: 0.01em;
+
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.calendarPrices {
+  font-family: "futura-pt",sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height, or 150% */
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.01em;
+
+  color: #FFFFFF;
+  text-align: center;
+  width: 80px;
+  padding-bottom: 8px;
+}
+
+.calendarPrices--price-low {
+  border-bottom: 2px solid #408FA3;
+}
+
+.calendarPrices--price-medium {
+  border-bottom: 2px solid #663AD1;
+}
+
+.calendarPrices--price-high {
+  border-bottom: 2px solid #EF8633;
+}
+
+.calendarMonth {
+  font-family: "futura-pt",sans-serif;
+  font-size: 20px;
+  line-height: 24px;
+  /* identical to box height, or 120% */
+
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.01em;
+}
+
+.calendarDate {
+  font-family: "futura-pt",sans-serif;
+  font-size: 16px;
+  line-height: 22px;
+  /* identical to box height, or 137% */
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.01em;
+  color: rgba(255, 255, 255, 0.8);
+  padding-bottom: 8px;
+}
+
+.calendarDate--disabled {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.calendarDate--price-low {
+  border-bottom: 2px solid #408FA3;
+}
+
+.calendarDate--price-medium {
+  border-bottom: 2px solid #663AD1;
+}
+
+.calendarDate--price-high {
+  border-bottom: 2px solid #EF8633;
+}
+
+.accordionItem {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 24px;
+  padding-top: 24px;
+}

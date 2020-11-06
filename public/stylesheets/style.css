@@ -1,0 +1,321 @@
+/*
+  MOBILE STYLES
+*/
+.headerOpaque {
+  /* What Its all about */
+  font-family: "futura-pt",sans-serif;
+  font-size: 12px;
+  line-height: 14px;
+  /* identical to box height */
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  opacity: 0.6; }
+
+.headerMain {
+  /* live video chat with santa */
+  font-family: "kepler-std",serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 28px;
+  line-height: 36px;
+  /* or 129% */
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #FFFFFF; }
+
+.bodyText {
+  /* Embark on an magical Elf guided Journey to the North Pole and enjoy a live video chat with Santa. The experience is guided by Elf Pickles, Dimples, Bazzle and Tinsel. */
+  font-family: "futura-pt",sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  /* or 150% */
+  letter-spacing: 0.01em;
+  color: #F2F2F2; }
+
+.watchTrailer {
+  /* Watch trailer */
+  font-family: "futura-pt",sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 21px;
+  letter-spacing: 0.01em;
+  color: #F2F2F2; }
+
+.headerRegular {
+  /* A reimagined timeless tradition from the safety of your own home */
+  font-family: "kepler-std",serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 32px;
+  /* or 133% */
+  letter-spacing: 0.03em;
+  color: #FFFFFF; }
+
+.carouselStatusText {
+  /* Part 1/8 */
+  font-family: "futura-pt",sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.01em;
+  color: rgba(255, 255, 255, 0.4); }
+
+.carouselCurrentSlideText {
+  /* Part <THIS NUMBER>/8 */
+  font-size: 24px; }
+
+.carouselDurationText {
+  font-family: "futura-pt",sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height, or 150% */
+  letter-spacing: 0.01em;
+  color: #F2F2F2; }
+
+.reviewOpaqueText {
+  font-family: "futura-pt",sans-serif;
+  font-size: 12px;
+  line-height: 14px;
+  /* identical to box height */
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  opacity: 0.6; }
+
+.reviewBodyText {
+  font-family: "futura-pt",sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  /* or 150% */
+  letter-spacing: 0.01em;
+  color: #FFFFFF; }
+
+.reviewNameText {
+  font-family: "futura-pt",sans-serif;
+  font-size: 12px;
+  line-height: 14px;
+  /* identical to box height */
+  letter-spacing: 0.02em;
+  color: #FFFFFF; }
+
+.videoThumbnailTitle {
+  font-family: "futura-pt",sans-serif;
+  font-size: 20px;
+  line-height: 23px;
+  /* identical to box height */
+  letter-spacing: 0.01em;
+  color: #FFFFFF; }
+
+.accordianContent {
+  font-family: "futura-pt",sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  /* or 150% */
+  letter-spacing: 0.01em;
+  color: rgba(255, 255, 255, 0.9); }
+
+.calendarPrices {
+  font-family: "futura-pt",sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height, or 150% */
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.01em;
+  color: #FFFFFF;
+  text-align: center;
+  width: 80px;
+  padding-bottom: 8px; }
+
+.calendarPrices--price-low {
+  border-bottom: 2px solid #408FA3; }
+
+.calendarPrices--price-medium {
+  border-bottom: 2px solid #663AD1; }
+
+.calendarPrices--price-high {
+  border-bottom: 2px solid #EF8633; }
+
+.calendarMonth {
+  font-family: "futura-pt",sans-serif;
+  font-size: 20px;
+  line-height: 24px;
+  /* identical to box height, or 120% */
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.01em; }
+
+.calendarDate {
+  font-family: "futura-pt",sans-serif;
+  font-size: 16px;
+  line-height: 22px;
+  /* identical to box height, or 137% */
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.01em;
+  color: rgba(255, 255, 255, 0.8);
+  padding-bottom: 8px; }
+
+.calendarDate--disabled {
+  color: rgba(255, 255, 255, 0.2); }
+
+.calendarDate--price-low {
+  border-bottom: 2px solid #408FA3; }
+
+.calendarDate--price-medium {
+  border-bottom: 2px solid #663AD1; }
+
+.calendarDate--price-high {
+  border-bottom: 2px solid #EF8633; }
+
+.accordionItem {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 24px;
+  padding-top: 24px; }
+
+.tk-futura-pt {
+  font-family: "futura-pt",sans-serif; }
+
+.tk-kepler-std {
+  font-family: "kepler-std",serif; }
+
+.tk-futura-pt-bold {
+  font-family: "futura-pt-bold",sans-serif; }
+
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
+body {
+  background: #000;
+  color: #FFF;
+  font-size: 16px; }
+
+body.nav-active {
+  height: 100vh;
+  overflow-y: hidden; }
+
+.navIcon--hidden {
+  display: none; }
+
+.nav {
+  align-items: center;
+  background: #000;
+  display: flex;
+  left: 0;
+  position: fixed;
+  height: 72px;
+  top: 0;
+  width: 100%; }
+
+.nav__logo {
+  height: 100%;
+  margin-right: auto;
+  width: auto; }
+
+.nav__bookButton {
+  align-items: center;
+  background: #A92921;
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  height: 40px;
+  justify-content: space-around;
+  width: 123px;
+  font-family: "futura-pt",sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.75em;
+  line-height: 16px;
+  /* identical to box height */
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: #F2F2F2;
+  margin-right: 20px; }
+
+.nav__button {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  height: 25px;
+  justify-content: space-around;
+  margin-right: 24px;
+  width: 25px; }
+
+#navCloseIcon {
+  height: auto;
+  width: 18px; }
+
+.navMenuContent {
+  background: #000;
+  bottom: 0;
+  display: none;
+  flex-direction: column;
+  height: calc(100vh - 72px);
+  left: 0;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-bottom: 32px;
+  padding-top: 53px;
+  position: absolute;
+  width: 100%;
+  z-index: 1; }
+
+.navMenuContent--visible {
+  display: flex; }
+
+.navMenuHeader {
+  font-family: "kepler-std",serif;
+  font-size: 28px;
+  margin-bottom: 24px; }
+
+.navMenuAnchorButton {
+  cursor: pointer;
+  font-family: "futura-pt",sans-serif;
+  padding-bottom: 24px;
+  padding-top: 24px; }
+
+.navMenuAnchorButton--borderBottom {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+
+.container--full-section-1 {
+  background-image: linear-gradient(to top, black, rgba(0, 0, 0, 0)), url("/images/bg-1-mobile.png");
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+.container--content-section-1 {
+  padding-bottom: 75px;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-top: 407px;
+  width: 100%; }
+
+.section-1--headerOpaque {
+  margin-bottom: 24px; }
+
+.section-1--headerMain {
+  margin-bottom: 16px; }
+
+.section-1--bodyText {
+  margin-bottom: 32px; }
+
+.section-1--watchTrailer {
+  cursor: pointer;
+  display: flex;
+  align-items: center; }
+  .section-1--watchTrailer svg {
+    height: auto;
+    margin-right: 20px;
+    width: 32px; }
+
+/*# sourceMappingURL=style.css.map */
