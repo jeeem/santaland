@@ -2,6 +2,11 @@ var santaNavButton = document.getElementById('navMenuButton');
 var santaNavMenuIcon = document.getElementById('navMenuIcon');
 var santaNavCloseIcon = document.getElementById('navCloseIcon');
 var navMenuContent = document.getElementById('navMenuContent');
+var theExperienceNavButton = document.getElementById('theExperienceNavButton');
+function scrolldiv(idToScrollTo) { 
+  var elem = document.getElementById(idToScrollTo);
+  elem.scrollIntoView({behavior: "smooth"}); 
+} 
 
 var santaToggleNav = function() {
     // close nav
@@ -20,3 +25,7 @@ var santaToggleNav = function() {
 }
 
 santaNavButton.onclick = santaToggleNav;
+theExperienceNavButton.onclick = function() {
+  santaToggleNav();
+  scrolldiv('theExperienceSection');
+}
