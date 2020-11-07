@@ -1,0 +1,93 @@
+.navIcon--hidden {
+  display: none;
+}
+.nav {
+  align-items: center;
+  background: #000;
+  display: flex;
+  left: 0;
+  position: fixed;
+  height: 72px;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+.nav__logo {
+  height: 100%;
+  margin-right: auto;
+  width: auto;
+}
+.nav__bookButton {
+  align-items: center;
+  background: #A92921;
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  height: 40px;
+  justify-content: space-around;
+  width: 123px;
+  
+  font-family: "futura-pt",sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.75em;
+  line-height: 16px;
+  /* identical to box height */
+
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+
+  color: #F2F2F2;
+  margin-right: 20px;
+}
+.nav__button {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  height: 25px;
+  justify-content: space-around;
+  margin-right: 24px;
+  width: 25px;
+}
+#navCloseIcon {
+  height: auto;
+  width: 18px;
+}
+.navMenuContent {
+  background: #000;
+  bottom: 0;
+  display: none;
+  flex-direction: column;
+  height: calc(100vh - 72px);
+  left: 0;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-bottom: 32px;
+  padding-top: 53px;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}
+.navMenuContent--visible {
+  display: flex;
+}
+.navMenuHeader {
+  font-family: "kepler-std",serif;
+  font-size: 28px;
+  margin-bottom: 24px;
+}
+.navMenuAnchorButton {
+  cursor: pointer;
+  font-family: "futura-pt",sans-serif;
+  padding-bottom: 24px;
+  padding-top: 24px;
+}
+.navMenuAnchorButton--borderBottom {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.navMenuSocialIcons {
+
+}
+.navMenuSocialIcon {
+
+}

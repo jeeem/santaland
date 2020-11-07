@@ -91,9 +91,24 @@
   font-size: 24px;
 }
 
+.carouselHeader {
+  /* The Sleigh Ride */
+
+  font-family: "kepler-std",serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 24px;
+
+  letter-spacing: 0.02em;
+
+  color: #FFFFFF;
+}
+
 .carouselDurationText {
   font-family: "futura-pt",sans-serif;
   font-size: 16px;
+  font-weight: 500;
   line-height: 24px;
   /* identical to box height, or 150% */
 
