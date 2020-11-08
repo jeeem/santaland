@@ -191,29 +191,6 @@
   padding-bottom: 8px;
 }
 
-.calendarPrices--price-low {
-  border-bottom: 2px solid #408FA3;
-}
-
-.calendarPrices--price-medium {
-  border-bottom: 2px solid #663AD1;
-}
-
-.calendarPrices--price-high {
-  border-bottom: 2px solid #EF8633;
-}
-
-.calendarMonth {
-  font-family: "futura-pt",sans-serif;
-  font-size: 20px;
-  line-height: 24px;
-  /* identical to box height, or 120% */
-
-  display: flex;
-  align-items: center;
-  letter-spacing: 0.01em;
-}
-
 .calendarDate {
   font-family: "futura-pt",sans-serif;
   font-size: 16px;

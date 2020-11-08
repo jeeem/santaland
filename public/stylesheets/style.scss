@@ -303,13 +303,192 @@ body.nav-active {
   width: 80px;
 }
 .pricing-guide-range--min {
-  border-bottom: 1px solid #408FA3;
+  border-bottom: 2px solid #408FA3;
   margin-right: 24px;
 }
 .pricing-guide-range--med {
-  border-bottom: 1px solid #663AD1;
+  border-bottom: 2px solid #663AD1;
   margin-right: 24px;
 }
 .pricing-guide-range--max {
-  border-bottom: 1px solid #EF8633;
+  border-bottom: 2px solid #EF8633;
+}
+
+.calendarMonth {
+  font-family: "futura-pt",sans-serif;
+  font-size: 20px;
+  line-height: 24px;
+  /* identical to box height, or 120% */
+
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.01em;
+  padding-left: 24px;
+  margin-bottom: 56px;
+}
+.daysOfWeek {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+.dayOfWeek {
+  font-family: "futura-pt",sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  /* identical to box height, or 114% */
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+
+  /* Gray / 5 */
+
+  color: #EEECF1;
+  margin-bottom: 40px;
+  width: calc((100vw - 48px) / 7);
+}
+
+.datesContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-bottom: 50px;
+  padding-left: 24px;
+  padding-right: 24px;
+  width: 100%;
+}
+
+.dateContainer {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  height: calc((100vw - 48px) / 7);
+  justify-content: space-around;
+  width: calc((100vw - 48px) / 7);
+}
+.dateNumber {
+  border-bottom: 2px solid rgba(0, 0, 0, 0);
+  color: rgba(255, 255, 255, 0.8);
+  font-family: "futura-pt",sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  padding-bottom: 8px;
+  text-align: center;
+  width: 16px;
+}
+.dateContainer--price-min {
+  .dateNumber {
+    border-bottom: 2px solid #408FA3;
+  }
+}
+.dateContainer--price-med {
+  .dateNumber {
+    border-bottom: 2px solid #663AD1;
+  }
+}
+.dateContainer--price-max {
+  .dateNumber {
+    border-bottom: 2px solid #EF8633;
+  }
+}
+.dateContainer--selected {
+  background: #3C8526;
+  border-radius: 100%;
+}
+.dateContainer--disabled {
+  background: rgba(0,0,0,0);
+  border-bottom: 2px solid rgba(0, 0, 0, 0);
+  cursor: initial;
+  .dateNumber {
+    color: rgba(255, 255, 255, 0.2);
+  }
+}
+.hoursContainer {
+  display: flex;
+  flex-direction: column;
+}
+.hoursContainer__top-border {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 56px;
+  margin-left: 24px;
+  width: calc(100vw - 48px);
+}
+.hoursContainer__headerRegular {
+  margin-bottom: 40px;
+  padding-left:24px;
+  padding-right:24px;
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: rgba(0,0,0,0);
+    display: inline;
+    font-size: 16px;
+    color: white;
+    font: inherit;
+    border: none;
+    background: none;
+    border-bottom:1px solid white;
+  }
+}
+.hoursContainer__hoursList {
+  display: flex;
+  margin-bottom: 72px;
+  overflow-x: scroll;
+  width: 100%;
+}
+.hoursContainer__hourCard {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  height: 120px;
+  margin-right: 16px;
+  min-width: 180px;
+  width: 180px;
+}
+.hoursContainer__hourCard--active {
+  background: #3C8526;
+  border-color: #3C8526;
+}
+.hoursContainer__hourCard--first {
+  margin-left: 24px;
+}
+.hoursContainer__hourCard--last {
+  margin-right: 24px;
+}
+.hourCard__hour {
+  font-family: "futura-pt",sans-serif;
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+.hourCard__slots {
+  color: rgba(255, 255, 255, 0.6);
+  font-family: "futura-pt",sans-serif;
+  font-size: 12px;
+  margin-bottom: 24px;
+}
+.hourCard__price {
+  font-family: "futura-pt",sans-serif;
+  font-size: 16px;
+}
+.hoursContainer__hourCard--disabled {
+  border-color: rgba(255, 255, 255, 0.1);
+  .hourCard__hour {
+    color: rgba(255, 255, 255, 0.1);
+  }
+  .hourCard__slots {
+    color: rgba(255, 255, 255, 0.1);
+  }
+  .hourCard__price {
+    color: rgba(255, 255, 255, 0.1);
+  }
 }
