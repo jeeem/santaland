@@ -735,7 +735,14 @@ body.nav-active {
   margin-bottom: 32px; }
 
 .departureContainer__availableTimes {
+  display: flex;
+  flex-wrap: wrap;
   margin-bottom: 32px; }
+
+.departureContainer__availableTime {
+  margin-bottom: 8px; }
+  .departureContainer__availableTime label {
+    margin-right: 30px; }
 
 .departureContainer__price {
   margin-bottom: 32px; }
@@ -753,12 +760,5 @@ body.nav-active {
   letter-spacing: 0.04em;
   margin-bottom: 40px;
   width: 100%; }
-
-.departureContainer__slotReservedTimer {
-  margin-bottom: 80px;
-  margin-left: auto;
-  margin-right: auto; }
-  .departureContainer__slotReservedTimer span {
-    font-weight: bold; }
 
 /*# sourceMappingURL=style.css.map */

@@ -513,7 +513,18 @@ body.nav-active {
   margin-bottom: 32px;
 }
 .departureContainer__availableTimes {
+  display: flex;
+  flex-wrap: wrap;
   margin-bottom: 32px;
+}
+.departureContainer__availableTime {
+  margin-bottom: 8px;
+  input {
+
+  }
+  label {
+    margin-right: 30px;
+  }
 }
 .departureContainer__price {
   margin-bottom: 32px;
@@ -533,12 +544,4 @@ body.nav-active {
 
   margin-bottom: 40px;
   width: 100%;
-}
-.departureContainer__slotReservedTimer {
-  margin-bottom: 80px;
-  margin-left: auto;
-  margin-right: auto;
-  span {
-    font-weight: bold;
-  }
 }
