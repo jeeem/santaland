@@ -335,7 +335,7 @@ body.nav-active {
   position: relative; }
 
 .container--full-section-2__background {
-  background-image: linear-gradient(to top, black, rgba(0, 0, 0, 0)), url("/images/bg-2-mobile.png");
+  background-image: linear-gradient(to bottom, black, rgba(0, 0, 0, 0)), linear-gradient(to top, black, rgba(0, 0, 0, 0)), url("/images/bg-2-mobile.png");
   background-position: center top;
   background-repeat: no-repeat;
   background-size: cover;
@@ -420,6 +420,8 @@ body.nav-active {
   margin-bottom: 32px; }
 
 .reviewName {
+  font-family: "futura-pt",sans-serif;
+  font-weight: 500;
   margin-bottom: 32px; }
 
 .reviewTicks {
@@ -437,5 +439,75 @@ body.nav-active {
 
 .reviewTick--active {
   background: #FFF; }
+
+.container--full-section-3 {
+  background: none;
+  position: relative; }
+
+.container--full-section-3__background {
+  background-image: linear-gradient(to bottom, black, rgba(0, 0, 0, 0)), linear-gradient(to top, black, rgba(0, 0, 0, 0)), url("/images/bg-3-mobile.png");
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1; }
+
+.container--content-section-3 {
+  padding-bottom: 89px;
+  padding-top: 80px; }
+
+.section-3--headerOpaque {
+  margin-bottom: 24px;
+  padding-left: 24px;
+  padding-right: 24px; }
+
+.section-3--headerRegular {
+  margin-bottom: 48px;
+  padding-left: 24px;
+  padding-right: 24px; }
+
+.video-thumbs-container {
+  display: flex;
+  padding-left: 24px;
+  padding-right: 24px;
+  overflow-x: scroll;
+  width: 100%; }
+
+.video-thumb-container--first {
+  margin-right: 20px; }
+
+.video-thumb-container {
+  display: flex;
+  flex-direction: column; }
+
+.video-image-container {
+  position: relative; }
+
+.video-image {
+  border-radius: 5%;
+  height: auto;
+  max-width: 400px;
+  width: calc(100vw - 94px); }
+
+.video-thumb-overlay {
+  background: rgba(0, 0, 0, 0.3);
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0; }
+
+.video-thumb-play-icon {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%); }
+
+.video-title {
+  margin-top: 24px; }
 
 /*# sourceMappingURL=style.css.map */
