@@ -1,3 +1,6 @@
+b {
+  font-weight: bold; }
+
 /*
   MOBILE STYLES
 */
@@ -710,5 +713,52 @@ body.nav-active {
     color: rgba(255, 255, 255, 0.1); }
   .hoursContainer__hourCard--disabled .hourCard__price {
     color: rgba(255, 255, 255, 0.1); }
+
+.departureContainer {
+  display: flex;
+  flex-direction: column;
+  padding-left: 24px;
+  padding-right: 24px; }
+
+.departureContainer__top-border {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 56px;
+  width: 100%; }
+
+.departureContainer__headerRegular {
+  margin-bottom: 32px; }
+
+.departureContainer__departureDate {
+  margin-bottom: 32px; }
+
+.departureContainer__choosetime {
+  margin-bottom: 32px; }
+
+.departureContainer__availableTimes {
+  margin-bottom: 32px; }
+
+.departureContainer__price {
+  margin-bottom: 32px; }
+
+.departureContainer__checkoutButton {
+  align-items: center;
+  background: #A92921;
+  border-radius: 24px;
+  cursor: pointer;
+  display: flex;
+  height: 48px;
+  justify-content: space-around;
+  font-family: "futura-pt",sans-serif;
+  font-size: 16px;
+  letter-spacing: 0.04em;
+  margin-bottom: 40px;
+  width: 100%; }
+
+.departureContainer__slotReservedTimer {
+  margin-bottom: 80px;
+  margin-left: auto;
+  margin-right: auto; }
+  .departureContainer__slotReservedTimer span {
+    font-weight: bold; }
 
 /*# sourceMappingURL=style.css.map */
