@@ -31,9 +31,6 @@
     
   </div>
 </div>
-<div class="formContent">
-
-</div>
 <div class="pageContent">
   <div class="container--full-section-1 container--full">
     <div class="container--content container--content-section-1">
@@ -117,7 +114,7 @@
         Some of the North Pole residents have a message for you
       </div>
       <div class="video-thumbs-container">
-        <div class="video-thumb-container video-thumb-container--first">
+        <div id="video-thumb-santa" class="video-thumb-container video-thumb-container--first">
           <div class="video-image-container">
             <img class="video-image" src="/images/video-1-thumb.png">
             <div class="video-thumb-overlay"></div>
@@ -128,7 +125,7 @@
           </div>
           <div class="video-title videoThumbnailTitle">Message from Santa</div>
         </div>
-        <div class="video-thumb-container video-thumb-container--second">
+        <div id="video-thumb-elf" class="video-thumb-container video-thumb-container--second">
           <div class="video-image-container">
             <img class="video-image" src="/images/video-2-thumb.png">
             <div class="video-thumb-overlay"></div>
@@ -139,6 +136,10 @@
           </div>
           <div class="video-title videoThumbnailTitle">Message from the Elfs</div>
         </div>
+      </div>
+
+      <div id="video-embed-container" class="video-embed-container">
+        <iframe frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
     </div>
   </div>
@@ -335,7 +336,7 @@
           <label class="bodyText" for="810pm">8:10pm</label>
         </div>
         <div class="departureContainer__availableTime">
-          <input type="checkbox" id="805pm">
+          <input type="checkbox" id="815pm">
           <label class="bodyText" for="scales">8:15pm</label>
         </div>
       </div>
@@ -346,4 +347,78 @@
       </div>
     </div>
   </div>
+<!-- START FORM -->
+  <div id="formSection" class="container--full-section-form container--full">
+    <div class="container--content container--content-section-form">
+      <div id="formCloseButton" class="formCloseButton">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14.4 12L23.5091 21.1091C24.1636 21.7636 24.1636 22.8545 23.5091 23.5091C22.8545 24.1636 21.7636 24.1636 21.1091 23.5091L12 14.4L2.89089 23.5091C2.23634 24.1636 1.14545 24.1636 0.490909 23.5091C-0.163636 22.8545 -0.163636 21.7636 0.490909 21.1091L9.59999 12L0.490909 2.89091C-0.163636 2.23637 -0.163636 1.14545 0.490909 0.490909C1.14545 -0.163636 2.23634 -0.163636 2.89089 0.490909L12 9.6L21.1091 0.490909C21.7636 -0.163636 22.8545 -0.163636 23.5091 0.490909C24.1636 1.14545 24.1636 2.23637 23.5091 2.89091L14.4 12Z" fill="currentColor"/>
+        </svg>
+      </div>
+      <div class="formHeaderMain">Checkout</div>
+      <div class="formSlotDetails">
+        <div>Date: <span id="formSlotDetailsDate" class="formSlotDetailsDate">12.16.20</span></div>
+        <div>Time: <span id="formSlotDetailsTime" class="formSlotDetailsTime">8:05pm</span> <span id="formSlotDetailsTimezone" class="formSlotDetailsTimezone">GMT</span></div>
+        <div>Price: <span id="formSlotDetailsPrice" class="formSlotDetailsPrice">£35.50</span></div>
+      </div>
+      <div class="formBreak"></div>
+      <div class="formYourInformationHeader">Your information</div>
+      <div class="formYourInformationSubheader">(Lead passenger, must be over the age of 18)</div>
+      <div class="formInputText">
+        <label for="firstName">First name*</label>
+        <input type="text" id="firstName" placeholder="First name"/>
+      </div>
+      <div class="formInputText">
+        <label for="lastName">Last name*</label>
+        <input type="text" id="lastName" placeholder="Last name"/>
+      </div>
+      <div class="formInputText">
+        <label for="email">Email*</label>
+        <input type="text" id="email" placeholder="Email"/>
+      </div>
+      <div class="formInputText">
+        <label for="addressLine1">Address line 1*</label>
+        <input type="text" id="addressLine1" placeholder="Street name"/>
+      </div>
+      <div class="formInputText">
+        <label for="addressLine2">Address line 2</label>
+        <input type="text" id="addressLine2" placeholder="Street name"/>
+      </div>
+      <div class="formInputText">
+        <label for="city">City*</label>
+        <input type="text" id="city" placeholder="City"/>
+      </div>
+      <div class="formInputText">
+        <label for="state">State*</label>
+        <input type="text" id="state" placeholder="State"/>
+      </div>
+      <div class="formInputText">
+        <label for="country">Country*</label>
+        <input type="text" id="country" placeholder="Country"/>
+      </div>
+      <div class="formBreak"></div>
+      <div class="formYourInformationHeader">Additional passenger</div>
+      <div class="formInputText">
+        <label for="nickname">Nickname</label>
+        <input type="text" id="nickname" placeholder="Nickname"/>
+      </div>
+      <div class="formInputText">
+        <label for="age">Age</label>
+        <input type="text" id="age" placeholder="Age"/>
+      </div>
+      <!-- Display a payment form -->
+      <form id="payment-form">
+        <div id="card-element"><!--Stripe.js injects the Card Element--></div>
+        <button id="submit">
+          <div class="spinner hidden" id="spinner"></div>
+          <span id="button-text">Pay</span>
+        </button>
+        <p id="card-error" role="alert"></p>
+        <p class="result-message hidden">
+        Jimmy you can put the successful result message here
+        </p>
+      </form>
+    </div>
+  </div>
+  <!-- END FORM -->
 </div>

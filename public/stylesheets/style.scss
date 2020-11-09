@@ -29,6 +29,7 @@ body.nav-active {
 // main 3em
 
 @import "nav";
+@import "form";
 
 .container--full-section-1 {
   background-image: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)), url('/images/bg-1-mobile.png');
@@ -228,6 +229,7 @@ body.nav-active {
   padding-right: 24px;
 }
 .video-thumb-container {
+  cursor: pointer;
   display: flex;
   flex-direction: column;
 }
@@ -256,6 +258,20 @@ body.nav-active {
 }
 .video-title {
   margin-top: 24px;
+}
+
+.video-embed-container {
+  display: none;
+  padding: 24px 24px 0 24px;
+  width: 100%;
+  iframe {
+    height: calc((100vw - 48px) / 2);
+    width:100%;
+  }
+}
+
+.video-embed-container--visible {
+  display: block;
 }
 .container--full-section-4 {
   background: none;
@@ -513,6 +529,7 @@ body.nav-active {
   margin-bottom: 32px;
 }
 .departureContainer__availableTimes {
+  cursor: pointer;
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 32px;
@@ -544,4 +561,7 @@ body.nav-active {
 
   margin-bottom: 40px;
   width: 100%;
+}
+.departureContainer__slotReservedTimer {
+  margin: 0 auto 80px auto;
 }

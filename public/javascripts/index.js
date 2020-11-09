@@ -48,3 +48,20 @@ navBookNowButton.onclick = function() {
   santaCloseNav();
   scrolldiv('bookingSection');
 }
+
+var videoSantaThumb = document.getElementById('video-thumb-santa');
+var videoElfThumb = document.getElementById('video-thumb-elf');
+var videoContainer = document.getElementById('video-embed-container');
+var videoIframe = videoContainer.querySelector('iframe');
+videoSantaThumb.onclick = function() {
+  videoContainer.classList.add('video-embed-container--visible')
+  videoIframe.src='https://www.youtube.com/embed/7d5rKjvhQvg';
+  scrolldiv('video-embed-container');
+}
+videoElfThumb.onclick = function() {
+  videoContainer.classList.add('video-embed-container--visible')
+  videoIframe.src='https://www.youtube.com/embed/9zBwXop5fAk';
+  scrolldiv('video-embed-container');
+}
+// santa: https://www.youtube.com/embed/7d5rKjvhQvg
+// elf: https://www.youtube.com/embed/9zBwXop5fAk
