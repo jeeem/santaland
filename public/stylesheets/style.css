@@ -347,10 +347,25 @@ body.nav-active {
     border-radius: 8px;
     font-size: 16px;
     padding: 15px 16px 14px; }
+  .formInputText textarea {
+    border: 1px solid #DDD;
+    border-radius: 8px;
+    font-family: "futura-pt",sans-serif;
+    font-size: 16px;
+    padding: 15px 16px 14px; }
+
+.formInputCheckbox {
+  align-items: center;
+  display: flex;
+  margin-bottom: 32px; }
+  .formInputCheckbox label {
+    color: #666;
+    font-size: 16px;
+    margin-left: 24px; }
 
 #payment-form {
-  width: 30vw;
-  min-width: 500px;
+  margin-bottom: 32px;
+  width: 100%;
   align-self: center;
   box-shadow: 0px 0px 0px 0.5px rgba(50, 50, 93, 0.1), 0px 2px 5px 0px rgba(50, 50, 93, 0.1), 0px 1px 1.5px 0px rgba(0, 0, 0, 0.07);
   border-radius: 7px;
@@ -691,7 +706,7 @@ body.nav-active {
 
 .video-embed-container {
   display: none;
-  padding: 24px 24px 0 24px;
+  padding: 72px 24px 0 24px;
   width: 100%; }
   .video-embed-container iframe {
     height: calc((100vw - 48px) / 2);

@@ -406,6 +406,19 @@
         <label for="age">Age</label>
         <input type="text" id="age" placeholder="Age"/>
       </div>
+      <div class="formInputText">
+        <label for="letterToSanta">Short description of letter to Santa</label>
+        <textarea id="letterToSanta" rows="5" cols="33" placeholder="Type message here"></textarea>
+      </div>
+      <div class="formInputText">
+        <label for="infoForSanta">Some amusing facts Santa should know</label>
+        <textarea id="infoForSanta" rows="5" cols="33" placeholder="Type message here"></textarea>
+      </div>
+      <div class="formInputCheckbox">
+        <input type="checkbox" id="parentConsent">
+        <label class="bodyText" for="parentConsent">I confirm parental consent is given to collect this infomation for the purposes of this experience</label>
+      </div>
+      <div class="formBreak"></div>
       <!-- Display a payment form -->
       <form id="payment-form">
         <div id="card-element"><!--Stripe.js injects the Card Element--></div>
@@ -418,6 +431,11 @@
         Jimmy you can put the successful result message here
         </p>
       </form>
+      <div class="formBreak"></div>
+      <div class="formInputCheckbox">
+        <input type="checkbox" id="confirmTOS">
+        <label class="bodyText" for="confirmTOS">Confirm read and agree to <br/><a href="" target="_blank">Terms of Use</a></label>
+      </div>
     </div>
   </div>
   <!-- END FORM -->
