@@ -8,6 +8,7 @@ var purchase = {
 
 var stripeForm = document.getElementById('payment-form');
 
+// TODO: get the purchase id from _formData
 // Disable the button until we have Stripe set up on the page
 stripeForm.querySelector("button").disabled = true;
 fetch("https://www.santatheexperience.com/api/stripe/paymentIntent.php", {
@@ -63,21 +64,48 @@ fetch("https://www.santatheexperience.com/api/stripe/paymentIntent.php", {
 // prompt the user to enter authentication details without leaving your page.
 var payWithCard = function(stripe, card, clientSecret) {
   loading(true);
-  stripe
-    .confirmCardPayment(clientSecret, {
-      payment_method: {
-        card: card
-      }
+  if (_formData) {
+    return fetch("/api/web/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ type: 'paymentpending', value: _formData})
+    })
+    .then(function(result) {
+      return stripe
+      .confirmCardPayment(clientSecret, {
+        payment_method: {
+          card: card
+        }
+      })
     })
     .then(function(result) {
       if (result.error) {
-        // Show error to your customer
-        showError(result.error.message);
+        return fetch("/api/web/", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ type: 'paymentfail', value: _formData})
+        }).then(function() {
+          // Show error to your customer
+          showError(result.error.message);
+        })
       } else {
-        // The payment succeeded!
-        orderComplete(result.paymentIntent.id);
+        return fetch("/api/web/", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ type: 'paymentsuccess', value: _formData})
+        }).then(function() {
+          // The payment succeeded!
+          orderComplete(result.paymentIntent.id);
+        })
       }
-    });
+    })
+  }
 };
 
 /* ------- UI helpers ------- */
@@ -91,7 +119,8 @@ var orderComplete = function(paymentIntentId) {
       "href",
       "https://dashboard.stripe.com/test/payments/" + paymentIntentId
     );
-  stripeForm.querySelector(".result-message").classList.remove("hidden");
+  document.querySelector("#checkoutconfirm").classList.remove("checkoutconfirm--hidden");
+  document.querySelector('#checkoutwrap').classList.add("checkoutwrap--hidden");
   stripeForm.querySelector("button").disabled = true;
 };
 

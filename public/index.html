@@ -555,9 +555,9 @@
             <div class="checkoutwrap">
             <h2>Checkout</h2>
             <ul class="checkoutdates">
-            <li>Date: 16.12.20</li>
-            <li>Time: 8:05pm GMT</li>
-            <li>Price: £35.50</li>
+              <li>Date: <span id="formSlotDate">16.12.20</span><br/></li>
+              <li>Time: <span id="formSlotTime">8:05pm GMT</span><br/></li>
+              <li>Price: <span id="formSlotPrice">£35.50</span></li>
             </ul>
 
             <hr class="sidebarborder" />
@@ -566,7 +566,7 @@
             	<li><label>First name*</label><input id="form_firstName" type="text" placeholder="John" /></li>
             	<li><label>Last name*</label><input id="form_lastName" type="text" placeholder="Smith" /></li>
             	<li><label>Email*</label><input id="form_email" type="email" placeholder="john@email.com" /></li>
-            	<li><label>Verify Email*</label><input type="email" placeholder="john@email.com" /></li>
+            	<!--<li><label>Verify Email*</label><input type="email" placeholder="john@email.com" /></li>
             	<li class="fulllist"><label>Address line 1*</label><input id="form_addressLine1" type="text" placeholder="100 Street Name" /></li>
             	<li class="fulllist"><label>Address line 2</label><input id="form_addressLine2" type="text" placeholder="Second town" /></li>
             	<li><label>City*</label><select  id="form_city"><option disabled selected>London</option><option>Toronto</option><option>New York</option></select></li>
@@ -816,13 +816,13 @@
    <option value="Yemen">Yemen</option>
    <option value="Zaire">Zaire</option>
    <option value="Zambia">Zambia</option>
-   <option value="Zimbabwe">Zimbabwe</option></select></li>
+   <option value="Zimbabwe">Zimbabwe</option></select></li>-->
             </ul>
             <hr class="sidebarborder" />
             <h6>Additional Passenger 1</h6>
             <ul class="formlisting2">
-            	<li class="thirdpart"><label>Name*</label><input type="text" placeholder="Nicky" /></li>
-            	<li class="onepart"><label>Age*</label><input type="number" placeholder="5" /></li>
+            	<li class="thirdpart"><label>Name*</label><input id="passenger1name" type="text" placeholder="Nicky" /></li>
+            	<li class="onepart"><label>Age*</label><input id="passenger1age" type="number" placeholder="5" /></li>
             	<li class="fulllist radiofrouplist">
                 	<label>Gender*</label>
                     <ul class="radiobxlist">
@@ -840,16 +840,16 @@
                     	<li><input id="form_passenger1_niceList_guardian" type="radio" id="Guardian" name="nicelist" /><label for="Guardian">Guardian</label></li>
                     </ul>
                 </li>
-            	<li class="fulllist"><label>Short description of letter to Santa</label><textarea id="form_passenger1_letterToSanta" placeholder="Hi Santa, I am super excited to meet you and can not wait to ask for presents" /></textarea></li>
-            	<li class="fulllist"><label>Some amusing facts Santa should know</label><textarea  id="form_passenger1_additionalDetails" placeholder="I love unicorns and pink dresses" /></textarea></li>
-                <li class="fulllist iconfirmarea"><input  id="form_passenger1_consentAuthorized" type="checkbox" id="iconfirm" /><label for="iconfirm">I confirm parental consent is given to collect this infomation for the purposes of this experience</label> </li>
+            	<li class="fulllist"><label>Short description of letter to Santa</label><textarea id="form_passenger1_letterToSanta" placeholder="Hi Santa, I am super excited to meet you and can not wait to ask for presents"></textarea></li>
+            	<li class="fulllist"><label>Some amusing facts Santa should know</label><textarea  id="form_passenger1_additionalDetails" placeholder="I love unicorns and pink dresses"></textarea></li>
+                <li class="fulllist iconfirmarea"><input  id="form_passenger1_consentAuthorized" type="checkbox" /><label for="form_passenger1_consentAuthorized">I confirm parental consent is given to collect this infomation for the purposes of this experience</label> </li>
                 
             </ul>
             <hr class="sidebarborder" />
             <h6>Additional Passenger 2 (optional)</h6>
             <ul class="formlisting2">
-            	<li class="thirdpart"><label>Name*</label><input type="text" placeholder="Nicky" /></li>
-            	<li class="onepart"><label>Age*</label><input type="number" placeholder="5" /></li>
+            	<li class="thirdpart"><label>Name*</label><input id="passenger2name" type="text" placeholder="Nicky" /></li>
+            	<li class="onepart"><label>Age*</label><input id="passenger2age" type="number" placeholder="5" /></li>
             	<li class="fulllist radiofrouplist">
                 	<label>Gender*</label>
                     <ul class="radiobxlist">
@@ -867,14 +867,14 @@
                     	<li><input id="form_passenger2_niceList_guardian" type="radio" id="Guardian" name="nicelist" /><label for="Guardian">Guardian</label></li>
                     </ul>
                 </li>
-            	<li class="fulllist"><label>Short description of letter to Santa</label><textarea id="form_passenger1_letterToSanta" placeholder="Hi Santa, I am super excited to meet you and can not wait to ask for presents" /></textarea></li>
-            	<li class="fulllist"><label>Some amusing facts Santa should know</label><textarea  id="form_passenger1_additionalDetails" placeholder="I love unicorns and pink dresses" /></textarea></li>
-                <li class="fulllist iconfirmarea"><input  id="form_passenger2_consentAuthorized" type="checkbox" id="iconfirm" /><label for="iconfirm">I confirm parental consent is given to collect this infomation for the purposes of this experience</label> </li>
+            	<li class="fulllist"><label>Short description of letter to Santa</label><textarea id="form_passenger2_letterToSanta" placeholder="Hi Santa, I am super excited to meet you and can not wait to ask for presents"></textarea></li>
+            	<li class="fulllist"><label>Some amusing facts Santa should know</label><textarea  id="form_passenger2_additionalDetails" placeholder="I love unicorns and pink dresses"></textarea></li>
+                <li class="fulllist iconfirmarea"><input  id="form_passenger2_consentAuthorized" type="checkbox" /><label for="form_passenger2_consentAuthorized">I confirm parental consent is given to collect this infomation for the purposes of this experience</label> </li>
                 
             </ul>
             <!--<button class="custmbtn addaditionl">+ Add additional Passenger</button>-->
             <hr class="sidebarborder" />
-            <form id="payment-form">
+            <form id="payment-form" class="payment-form--hidden">
               <div id="card-element"><!--Stripe.js injects the Card Element--></div>
               <button id="submit">
                 <div class="spinner hidden" id="spinner"></div>
@@ -891,12 +891,13 @@
             <button class="custmbtn confirmpay">Confirm & Pay</button>
 			</div>
 			
-            <div class="checkoutconfirm">
+      <div id="checkoutconfirm" class="checkoutconfirm checkoutconfirm--hidden">
 				<div class="comfirmedimg"><img src="images/confirmed-img.jpg" alt="comfirmedimg" border="0"></div>
             	<h2>Congratulations, your all set for your Santa Experience!</h2>
                 <ul class="confirdatetimelist">
-                	<li><strong>Date:</strong>16.12.10</li>
-                	<li><strong>Time:</strong>8:05pm</li>
+                  <li>Date: <span id="confirmSlotDate">16.12.20</span><br/></li>
+                  <li>Time: <span id="confirmSlotTime">8:05pm GMT</span><br/></li>
+                  <li>Price: <span id="confirmSlotPrice">£35.50</span></li>
                 </ul>
                 <div class="anemailtext">An email confirmation with call instructions have been sent to <br /><strong><a href="mailto:john@email.com">john@email.com</a></strong></div>
             </div>

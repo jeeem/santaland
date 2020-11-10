@@ -342,10 +342,10 @@ ul.footersocial > li.gh:hover a{ background-position:-292px -213px;}
 .rightsideinner h2,.rightsideinner h3,.rightsideinner h4,.rightsideinner h5,.rightsideinner h6{ color:#222222; font-family: 'FuturaBookBT';}
 .sidebaropen{ display:block; right:0; transition: all .5s ease 0s;}
 ul.checkoutdates{ clear:both; margin:0 0 0px 0; padding:0 0 0px 0; text-align:left; }
-ul.checkoutdates > li{ display:inline-block; margin:0 0 0 10px; padding:0 0 0 10px; position:relative; vertical-align:top; line-height:1; font-weight: 500;} 
-ul.checkoutdates > li:before{ content:""; display:block; width:1px;; height:16px; background-color:#dadada; position:absolute; left:0; top:0;}
-ul.checkoutdates > li:first-child{ margin:0; padding:0;}
-ul.checkoutdates > li:first-child:before{ display:none;}
+ul.checkoutdates > li{ display:block; margin:0 0 10px 10px; padding:0 0 0 10px; position:relative; vertical-align:top; line-height:1; font-weight: 500;} 
+/* ul.checkoutdates > li:before{ content:""; display:block; width:1px; height:16px; background-color:#dadada; position:absolute; left:0; top:0;} */
+/* ul.checkoutdates > li:first-child{ margin:0; padding:0;} */
+/* ul.checkoutdates > li:first-child:before{ display:none;} */
 .rightsideinner h2{margin:0 0 30px 0;}
 .rightsideinner h6{margin:0 0 30px 0;}
 .rightsideinner h6 strong{ font-size:12px; font-weight:500; color:#666666;}
@@ -570,7 +570,7 @@ ul.visacardlist > li:nth-child(2) span:last-child{ margin:0;}
 ul.confirdatetimelist > li{ font-size:20px;}
 .calendersecrip{ margin:0;}
 ul.timeblocklist{ margin:20px -20px 20px -20px; white-space:nowrap; overflow-x:auto;}
-ul.timeblocklist > li{ width:180px; padding:0 10px;}
+ul.timeblocklist > li{ width:auto; padding:0 10px;}
 .bannercaption{ width:100%;}
 .satacheckoutwrp > a{ width:100%;}
 .timeslot{ width:100%;}
@@ -995,3 +995,12 @@ ul.resmenu > li > a:hover{ color:#811B14;}
 /*
     END STRIPE PAYMENT FORM
 */
+.payment-form--hidden {
+  display: none;
+}
+.checkoutconfirm--hidden {
+  display: none;
+}
+.checkoutwrap--hidden {
+  display: none;
+}

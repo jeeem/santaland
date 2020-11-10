@@ -116,6 +116,26 @@ String.prototype.splice = function(idx, rem, str) {
   return this.slice(0, idx) + str + this.slice(idx + Math.abs(rem));
 };
 
+function getTimezoneName() {
+  const today = new Date();
+  const short = today.toLocaleDateString(undefined);
+  const full = today.toLocaleDateString(undefined, { timeZoneName: 'short' });
+
+  // Trying to remove date from the string in a locale-agnostic way
+  const shortIndex = full.indexOf(short);
+  if (shortIndex >= 0) {
+    const trimmed = full.substring(0, shortIndex) + full.substring(shortIndex + short.length);
+    
+    // by this time `trimmed` should be the timezone's name with some punctuation -
+    // trim it from both sides
+    return trimmed.replace(/^[\s,.\-:;]+|[\s,.\-:;]+$/g, '');
+
+  } else {
+    // in some magic case when short representation of date is not present in the long one, just return the long one as a fallback, since it should contain the timezone's name
+    return full;
+  }
+}
+
 // TODO: set price range on calendar
 // helper for calendar css class
 function determinePriceRange(price) {
@@ -239,7 +259,13 @@ var departureTimeList = document.getElementById('detartrtimelist');
 var departureTimePrice = document.getElementById('satatotalprice');
 var departureTimeCheckoutButton = document.getElementById('satacheckoutwrp');
 var departureTimeTimer = document.getElementById('departureTimeTimer');
-var currentlyViewingID = null;
+var formSlotDate = document.getElementById('formSlotDate');
+var formSlotTime = document.getElementById('formSlotTime');
+var formSlotPrice = document.getElementById('formSlotPrice');
+var confirmSlotDate = document.getElementById('confirmSlotDate');
+var confirmSlotTime = document.getElementById('confirmSlotTime');
+var confirmSlotPrice = document.getElementById('confirmSlotPrice');
+
 departureTimeCheckoutButton.onclick =function(e) {
   jQuery('.rightsidesec').toggleClass("sidebaropen");
   jQuery('body').toggleClass("noscroll");
@@ -270,7 +296,7 @@ function createDepartureTime(departureObject, index) {
   newdepartureradio.id = 'departureradio' + index;
   newdepartureradio.name = 'departuretime';
   newdepartureradio.type = 'radio';
-  newdepartureradio.dataset.selectedslotdatetime = newDepDate;
+  newdepartureradio.dataset.selectedslotdatetime = newDepDate.toUTCString();
   newdepartureradio.dataset.selectedslotid = newDepID;
   newdepartureradio.dataset.selectedslotpriceeur = newDatePriceEUR; // 3
   newdepartureradio.dataset.selectedslotpricegbp = newDatePriceGBP; // 2
@@ -294,6 +320,14 @@ function createDepartureTime(departureObject, index) {
       _formData.selectedSlotPriceEUR = newdepartureradio.dataset.selectedslotpriceeur;
       _formData.selectedSlotPriceGBP = newdepartureradio.dataset.selectedslotpricegbp;
       _formData.selectedSlotPriceUS = newdepartureradio.dataset.selectedslotpriceus;
+      
+      formSlotDate.innerHTML = newDepDate.toLocaleDateString(undefined, { year: 'numeric', month: 'numeric', day: 'numeric' });
+      formSlotTime.innerHTML = newDepDate.toLocaleTimeString() + " " + getTimezoneName();
+      formSlotPrice.innerHTML = currencyString + currencyStringDecimal;
+
+      confirmSlotDate.innerHTML = newDepDate.toLocaleDateString(undefined, { year: 'numeric', month: 'numeric', day: 'numeric' });
+      confirmSlotTime.innerHTML = newDepDate.toLocaleTimeString() + " " + getTimezoneName();
+      confirmSlotPrice.innerHTML = currencyString + currencyStringDecimal;
     }
   }
 
@@ -337,7 +371,7 @@ function populateHoursList(dayDateString) {
   hoursList.forEach(function(hourAndAppt) {
     let thisHour = hourAndAppt[0];
     var cloneDate = new Date(thisHour);
-    var availableHourString = cloneDate.toLocaleTimeString([], {timeStyle: 'short', hour12: true }) + " - " + thisHour.addHours(1).toLocaleTimeString([], {timeStyle: 'short', hour12: true });
+    var availableHourString = cloneDate.toLocaleTimeString([], {hour12: true, hour: '2-digit', minute: '2-digit' }) + " - " + thisHour.addHours(1).toLocaleTimeString([], {hour12: true, hour: '2-digit', minute: '2-digit' });
     // create a new div element 
     var newli = document.createElement("li");
     var newtimeblock = document.createElement("div");
@@ -401,4 +435,129 @@ daysList.forEach(function(thisDayNode) {
       thisDayNode.classList.add('dateContainer--disabled');
     }
   }
-})
+});
+/*
+form: {
+  firstName: '',
+  lastName: '',
+  email: '',
+  addressLine1: '',
+  addressLine2: '',
+  city: '',
+  state: '',
+  country: '',
+  agreeTOS: false,
+  passenger1: {
+    name: '',
+    age: '',
+    gender: '',
+    niceList: '',
+    letterToSanta: '',
+    additionalDetails: '',
+    consentAuthorized: false
+  },
+  passenger2: {
+    name: '',
+    age: '',
+    gender: '',
+    niceList: '',
+    letterToSanta: '',
+    additionalDetails: '',
+    consentAuthorized: false
+  }
+}*/
+
+var formInputFirstName = document.getElementById('form_firstName');
+var formInputLastName = document.getElementById('form_lastName');
+var formInputEmail = document.getElementById('form_email');
+/*
+var formInputAddressLine1 = document.getElementById('form_addressLine1');
+var formInputAddressLine2 = document.getElementById('form_addressLine2');
+var formInputCity = document.getElementById('form_city');
+var formInputState = document.getElementById('form_state');
+var formInputCountry = document.getElementById('form_country');
+*/
+var formInputpassenger1name = document.getElementById('passenger1name');
+var formInputpassenger1age = document.getElementById('passenger1age');
+var formInputpassenger1genderboy = document.getElementById('form_passenger1_gender_boy');
+var formInputpassenger1gendergirl = document.getElementById('form_passenger1_gender_girl');
+var formInputpassenger1genderna = document.getElementById('form_passenger1_gender_na');
+var formInputpassenger1niceListyes = document.getElementById('form_passenger1_niceList_yes');
+var formInputpassenger1niceListno = document.getElementById('form_passenger1_niceList_no');
+var formInputpassenger1niceListparent = document.getElementById('form_passenger1_niceList_parent');
+var formInputpassenger1niceListguardian = document.getElementById('form_passenger1_niceList_guardian');
+var formInputformpassenger1letterToSanta = document.getElementById('form_passenger1_letterToSanta');
+var formInputformpassenger1additionalDetails = document.getElementById('form_passenger1_additionalDetails');
+var formInputformpassenger1consentAuthorized = document.getElementById('form_passenger1_consentAuthorized');
+
+var formInputpassenger2name = document.getElementById('passenger2name');
+var formInputpassenger2age = document.getElementById('passenger2age');
+var formInputpassenger2genderboy = document.getElementById('form_passenger2_gender_boy');
+var formInputpassenger2gendergirl = document.getElementById('form_passenger2_gender_girl');
+var formInputpassenger2genderna = document.getElementById('form_passenger2_gender_na');
+var formInputpassenger2niceListyes = document.getElementById('form_passenger2_niceList_yes');
+var formInputpassenger2niceListno = document.getElementById('form_passenger2_niceList_no');
+var formInputpassenger2niceListparent = document.getElementById('form_passenger2_niceList_parent');
+var formInputpassenger2niceListguardian = document.getElementById('form_passenger2_niceList_guardian');
+var formInputformpassenger2letterToSanta = document.getElementById('form_passenger2_letterToSanta');
+var formInputformpassenger2additionalDetails = document.getElementById('form_passenger2_additionalDetails');
+var formInputformpassenger2consentAuthorized = document.getElementById('form_passenger2_consentAuthorized');
+
+var paymentForm = document.getElementById('payment-form');
+
+function validateForm() {
+  if (
+    formInputFirstName.value && formInputFirstName.value.length
+    && formInputLastName.value && formInputLastName.value.length
+    && formInputEmail.value && formInputEmail.value.includes('@') && formInputEmail.value.includes('.')
+  ) {
+    paymentForm.classList.remove('payment-form--hidden');
+      _formData.form.firstName = formInputFirstName.value;
+      _formData.form.lastName = formInputLastName.value;
+      _formData.form.email = formInputEmail.value;
+      /*_formData.form.addressLine1 = ;
+      _formData.form.addressLine2 = ;
+      _formData.form.city = ;
+      _formData.form.state = ;
+      _formData.form.country = ;*/
+      _formData.form.agreeTOS = false,
+
+      _formData.form.passenger1.name = formInputpassenger1name.value;
+      _formData.form.passenger1.age = formInputpassenger1age.value;
+      _formData.form.passenger1.gender = formInputpassenger1genderboy.checked ? 'boy' : (formInputpassenger1gendergirl.checked ? 'girl' : 'N/A');
+      _formData.form.passenger1.niceList = formInputpassenger1niceListyes.checked ? 'yes' : (formInputpassenger1niceListno.checked ? 'no' : 'N/A');
+      _formData.form.passenger1.letterToSanta = formInputformpassenger1letterToSanta.value;
+      _formData.form.passenger1.additionalDetails = formInputformpassenger1additionalDetails.value;
+      _formData.form.passenger1.consentAuthorized = formInputformpassenger1consentAuthorized.value || formInputformpassenger1consentAuthorized.checked;
+
+      _formData.form.passenger2.name = formInputpassenger2name.value;
+      _formData.form.passenger2.age = formInputpassenger2age.value;
+      _formData.form.passenger2.gender = formInputpassenger2genderboy.checked ? 'boy' : (formInputpassenger2gendergirl.checked ? 'girl' : 'N/A');
+      _formData.form.passenger2.niceList = formInputpassenger2niceListyes.checked ? 'yes' : (formInputpassenger2niceListno.checked ? 'no' : 'N/A');
+      _formData.form.passenger2.letterToSanta = formInputformpassenger2letterToSanta.value;
+      _formData.form.passenger2.additionalDetails = formInputformpassenger2additionalDetails.value;
+      _formData.form.passenger2.consentAuthorized = formInputformpassenger2consentAuthorized.value || formInputformpassenger2consentAuthorized.checked;
+    return true;
+  } else {
+    paymentForm.classList.add('payment-form--hidden');
+  }
+}
+formInputFirstName.onchange = function(e) {
+  if (validateForm()) {
+    console.log('form is valid');
+  }
+}
+formInputLastName.onchange = function(e) {
+  if (validateForm()) {
+    console.log('form is valid');
+  }
+}
+formInputEmail.onchange = function(e) {
+  if (validateForm()) {
+    console.log('form is valid');
+  }
+}
+
+
+
+
