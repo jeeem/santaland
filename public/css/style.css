@@ -851,6 +851,13 @@ ul.resmenu > li > a:hover{ color:#811B14;}
 .yoursantaexper--hidden {
   display: none;
 }
+
+.satacheckoutwrp--hidden {
+  display: none;
+}
+.timeslot--hidden {
+  display: none;
+}
 /*
   END CALENDAR CODE
   END CALENDAR CODE

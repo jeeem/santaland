@@ -216,9 +216,10 @@
             	<div class="smallsubhead">Book Now</div>
                 <h2>Reserve your time to video chat with Santa</h2>
                 <ul class="calenderlist">
-                	<li>£30 - 50</li>
-                	<li>£50 - 80</li>
-                	<li>£80 - 100</li>
+                  <!-- TODO: set price range on calendar -->
+                	<li><span class="localCurrency">£</span>30 - 50</li>
+                	<li><span class="localCurrency">£</span>50 - 80</li>
+                	<li><span class="localCurrency">£</span>80 - 100</li>
                 </ul>
                 <div class="calnederarea">
                   <!-- START CALENDAR -->
@@ -460,21 +461,21 @@
                     </ul>
                 </div>
                 
-                <div class="yoursantaexper">
+                <div id="yoursantaexper" class="yoursantaexper yoursantaexper--hidden">
                 	<div class="satabookigimg"><img src="images/bookingsantaimg.png" alt="sataimg" border="0" /></div>
                     <div class="satabookigarea">
                     	<h5>Your Santa Experience Booking</h5>
-                        <div class="santabookdate"><strong>Date:</strong> 16.12.20</div>
+                        <div class="santabookdate"><strong>Date:</strong> <span id="santabookdate">16.12.20</span></div>
                         <div class="choosedepartur">Choose depature time:</div>
-                        <ul class="detartrtimelist">
+                        <ul id="detartrtimelist" class="detartrtimelist">
                         	<li><input name="depaturetime" type="radio" id="input1" checked="checked" /><label for="input1">8:05pm</label></li>
                         	<li><input name="depaturetime" type="radio" id="input2" /><label for="input2">8:15pm</label> </li>
                         	<li><input name="depaturetime" type="radio" id="input3" /><label for="input3">8:25pm</label></li>
                         	<li><input name="depaturetime" type="radio" id="input4" /><label for="input4">8:35pm</label></li>
                         </ul>
-                        <div class="satatotalprice"><strong>Total price:</strong> £35.80</div>
-                        <div class="satacheckoutwrp"><a href="javascript:void(0);" class="custmbtn opensidebarbtn">Checkout</a></div>
-                        <div class="timeslot">Time slot reserverd for 9:36 more minutes</div>
+                        <div class="satatotalprice"><strong>Total price:</strong> <span id="satatotalprice"></span></div>
+                        <div id="satacheckoutwrp" class="satacheckoutwrp satacheckoutwrp--hidden"><a href="javascript:void(0);" class="custmbtn">Checkout</a></div>
+                        <div class="timeslot timeslot--hidden">Time slot reserved for <span id="departureTimeTimer">9:36</span> more minutes</div>
                     </div>
                 </div>
         </div>

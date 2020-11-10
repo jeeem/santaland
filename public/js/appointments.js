@@ -103,8 +103,8 @@ var _formData = {
 
 var access_key = '8e6dd728f8af508589491d63d16ada7e';
 var locale;
-var priceIndex = 2;
-var currencyString = 'US $';
+var priceIndex = 4;
+var currencyString = '$';
 
 // helpers for rendering calendar correctly
 Date.prototype.addHours = function(h) {
@@ -116,11 +116,12 @@ String.prototype.splice = function(idx, rem, str) {
   return this.slice(0, idx) + str + this.slice(idx + Math.abs(rem));
 };
 
+// TODO: set price range on calendar
 // helper for calendar css class
 function determinePriceRange(price) {
   // compare price to medium range, for underlines in calendar
   var mediumMin = 2600;
-  var mediumMax = 2600;
+  var mediumMax = 3500;
   if (price < mediumMin) return 'min';
   if (price > mediumMax) return 'max';
   return 'med'
@@ -140,6 +141,9 @@ $.ajax({
         priceIndex = 3;
         currencyString = '€';
       }
+      Array.from(document.querySelectorAll('.localCurrency')).forEach(function(el) {
+        el.innerHTML = currencyString;
+      })
     }
 });
 
@@ -169,15 +173,16 @@ var appointments = [
 function dayOfMonth(date){	
 	var lowestPrice = 8000000;
 	for(var i = 0; i < appointments.length; i++){
-		if(lowestPrice > appointments[i][priceIndex]){
-			lowestPrice =  appointments[i][priceIndex];
-		}
 		var dateToCheck = new Date(appointments[i][1]);
 		if (dateToCheck.getDate() == date.getDate()){
-      // return (currencyString + lowestPrice/100);
-      return determinePriceRange(lowestPrice)
+      if(lowestPrice > appointments[i][priceIndex]){
+        lowestPrice =  appointments[i][priceIndex];
+      }
 		}
-	}
+  }
+  if (lowestPrice < 8000000) {
+    return determinePriceRange(lowestPrice)
+  }
 	return false;
 }
 
@@ -207,7 +212,10 @@ function timesForHours(date){ //returs a date object for the available times in 
 	let dates = [];
 	for(var i = 0; i < appointments.length; i++){
 		var dateToCheck = new Date(appointments[i][1]);
-		if (dateToCheck.getHours() == date.getHours()){
+		if (
+      dateToCheck.getHours() == date.getHours()
+      && dateToCheck.getDate() == date.getDate()
+    ){
 			if(times.indexOf(dateToCheck.getMinutes()) === -1) {
 				times.push(dateToCheck.getMinutes());
 				dates.push(appointments[i])
@@ -219,12 +227,105 @@ function timesForHours(date){ //returs a date object for the available times in 
 
 //date.toLocaleTimeString([], {timeStyle: 'short', hour12: true });
 //date.toLocaleTimeString([], {hour: '2-digit'});
-
+/*
 console.log(hoursByDay(new Date('2020-12-09T03:20:00+0000')));
 console.log(dayOfMonth(new Date('2020-12-09T03:20:00+0000')));
 console.log(timesForHours(new Date('2020-12-09T03:20:00+0000')));
+*/
+// departure time section
+var departureTimeSection = document.getElementById('yoursantaexper');
+var departureTimeDate = document.getElementById('santabookdate');
+var departureTimeList = document.getElementById('detartrtimelist');
+var departureTimePrice = document.getElementById('satatotalprice');
+var departureTimeCheckoutButton = document.getElementById('satacheckoutwrp');
+var departureTimeTimer = document.getElementById('departureTimeTimer');
+var currentlyViewingID = null;
+departureTimeCheckoutButton.onclick =function(e) {
+  jQuery('.rightsidesec').toggleClass("sidebaropen");
+  jQuery('body').toggleClass("noscroll");
+      fetch("/api/web/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ type: 'holdslot', value: _formData.selectedSlotID})
+    })
+    .then(function(result) {
+      // start countdown here
+    })
+}
 
+function createDepartureTime(departureObject, index) {
+  var newDepDate = new Date(departureObject[1]);
+  var newDepID = departureObject[0];
+  var newDatePriceEUR = departureObject[2];
+  var newDatePriceGBP = departureObject[3];
+  var newDatePriceUS = departureObject[4];
 
+  var availableHourString = newDepDate.toLocaleTimeString([], {hour: 'numeric', minute: 'numeric' });
+ 
+  // create a new div element 
+  var newli = document.createElement("li");
+  var newdepartureradio = document.createElement("input");
+  newdepartureradio.id = 'departureradio' + index;
+  newdepartureradio.name = 'departuretime';
+  newdepartureradio.type = 'radio';
+  newdepartureradio.dataset.selectedslotdatetime = newDepDate;
+  newdepartureradio.dataset.selectedslotid = newDepID;
+  newdepartureradio.dataset.selectedslotpriceeur = newDatePriceEUR; // 3
+  newdepartureradio.dataset.selectedslotpricegbp = newDatePriceGBP; // 2
+  newdepartureradio.dataset.selectedslotpriceus = newDatePriceUS; // 4
+  var newdeparturelabel = document.createElement("label");
+  newdeparturelabel.for = 'departureradio' + index;
+  newdeparturelabel.innerHTML = availableHourString;
+  newli.appendChild(newdepartureradio)
+  newli.appendChild(newdeparturelabel)
+
+  newli.onclick = function(e) {
+    if (!newdepartureradio.checked) {
+      departureTimeCheckoutButton.classList.remove('satacheckoutwrp--hidden');
+      newdepartureradio.checked = true;
+      let currencyStringDecimal = departureObject[priceIndex].toString();
+      currencyStringDecimal = currencyStringDecimal.splice(currencyStringDecimal.length - 2, 0, '.')
+      departureTimePrice.innerHTML = currencyString + " " + currencyStringDecimal;
+      
+      _formData.selectedSlotDateTime = newdepartureradio.dataset.selectedslotdatetime;
+      _formData.selectedSlotID = newdepartureradio.dataset.selectedslotid;
+      _formData.selectedSlotPriceEUR = newdepartureradio.dataset.selectedslotpriceeur;
+      _formData.selectedSlotPriceGBP = newdepartureradio.dataset.selectedslotpricegbp;
+      _formData.selectedSlotPriceUS = newdepartureradio.dataset.selectedslotpriceus;
+    }
+  }
+
+  departureTimeList.appendChild(newli);
+
+  /* 
+  selectedSlotDateTime: null,
+  selectedSlotID: null,
+  selectedSlotPriceEUR: null,
+  selectedSlotPriceGBP: null,
+  selectedSlotPriceUS: null,
+
+  [1, '2020-12-09T03:00:00+0000', 2599,2599,2599]
+  <li>
+    <input name="departuretime" type="radio" />
+    <label for="input1">8:05pm</label>
+  </li>
+  */
+}
+
+function populateDepartureTimes(hourDate) {
+  departureTimeSection.classList.remove('yoursantaexper--hidden');
+  var availableDepartureTimes = timesForHours(hourDate);
+  departureTimeDate.innerHTML = hourDate.toLocaleDateString(undefined, { year: 'numeric', month: 'numeric', day: 'numeric' });
+  departureTimeList.innerHTML = '';
+  availableDepartureTimes.forEach(function(departureTime, index) {
+    createDepartureTime(departureTime, index);
+  })
+
+}
+
+// available hours section
 var timeblockList = document.getElementById('timeblocklist');
 var hoursListContainer = document.querySelector('.calendersecrip');
 
@@ -254,14 +355,15 @@ function populateHoursList(dayDateString) {
     newboxtiming.innerHTML = availableHourString;
     newtimeavailable.innerHTML = "3 Departures available";
   
-    let currencyString = hourAndAppt[1][3].toString();
-    currencyString = currencyString.splice(currencyString.length - 2, 0, '.')
-    newtimeprice.innerHTML = "£" + currencyString;
+    let currencyStringDecimal = hourAndAppt[1][priceIndex].toString();
+    currencyStringDecimal = currencyStringDecimal.splice(currencyStringDecimal.length - 2, 0, '.')
+    newtimeprice.innerHTML = currencyString + " " + currencyStringDecimal;
   
     newli.dataset.hour = cloneDate.toUTCString();
     newli.onclick = function() {
       // populate timeslot inputs and make section visible
       let timesArray = timesForHours(new Date(newli.dataset.hour));
+      populateDepartureTimes(new Date(newli.dataset.hour))
       Array.from(timeblockList.querySelectorAll('li')).forEach(function(thisLI) {
         thisLI.classList.remove('activetime');
       });
@@ -272,8 +374,10 @@ function populateHoursList(dayDateString) {
   })
 }
 
+// available days section
 var daysContainer = document.getElementById('daysContainer');
 var daysList = Array.from(daysContainer.querySelectorAll('.dateContainer'));
+
 daysList.forEach(function(thisDayNode) {
   if (thisDayNode.id) {
     var thisDayNum = thisDayNode.id.split('dec')[1];
@@ -285,6 +389,8 @@ daysList.forEach(function(thisDayNode) {
     if (priceRange) {
       thisDayNode.classList.add('dateContainer--price-' + priceRange);
       thisDayNode.onclick = function() {
+        departureTimeCheckoutButton.classList.add('satacheckoutwrp--hidden');
+        departureTimeSection.classList.add('yoursantaexper--hidden');
         daysList.forEach(function(dayNode) {
           dayNode.classList.remove('dateContainer--selected');
           populateHoursList(thisDayNode.dataset.datestring);
@@ -296,5 +402,3 @@ daysList.forEach(function(thisDayNode) {
     }
   }
 })
-
-var currentSelection = {}
