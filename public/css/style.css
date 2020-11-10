@@ -170,7 +170,7 @@ ul.sociallinks > li.gh:hover a{ background-position:-155px -27px;}
 /*Theexperiece*/
 .theexperiesec{ clear:both; margin:0; padding:0; background-color:#061e1e;}
 .theexperiearea{ clear:both; margin:0; padding:160px 0 160px 0; text-align:center;}
-.theexperiecbg{background-image:url("../images/the_experience_bg.jpg"); background-repeat:no-repeat; background-position:center bottom; background-size:auto 100%; min-height: 1260px;}
+.theexperiecbg{background-image:url("../images/the_experience_bg.jpg"); background-repeat:no-repeat; background-position:center bottom; background-size:cover; min-height: 1260px;}
 .reviewspart{ clear:both; margin:0 0 0 0;}
 .reviewspart:after{ content:""; display:table; clear:both; margin:0; padding:0;}
 .reviewsarea{ clear:both; margin:0; padding:50px 75px; float:right; width:550px; border-left:2px solid #a42a27; background-color:rgba(0,0,0,0.5); text-align:left;}
@@ -279,7 +279,7 @@ ul.detartrtimelist > li:first-child{ margin-left:0;}
 .faqsec{ clear:both; margin:0; padding:0; background-color:#00070f;}
 .faqsec .sitewrapper{max-width:850px;}
 .faqarea{ clear:both; margin:0; padding:160px 0 160px 0; text-align:center;}
-.faqbg{ background-image:url("../images/faq_bg.jpg"); background-repeat:no-repeat; background-position:center bottom; background-size:auto auto; min-height: 1140px;}
+.faqbg{ background-image:url("../images/faq_bg.jpg"); background-repeat:no-repeat; background-position:center bottom; background-size:cover; min-height: 1140px;}
 .faqaccordion{ clear:both; margin:100px auto 200px auto; padding:0; text-align:left;}
 .tab_wrapper.faqaccordion .content_wrapper{border: 0; border-bottom:1px solid #2d383e;}
 .tab_wrapper.faqaccordion .content_wrapper .accordian_header{ border-bottom:0; text-transform:none; font-weight:600; padding:20px 0;}
@@ -427,10 +427,10 @@ ul.promotionlist > li button{ width:100%;}
 
 
 @media screen and (min-width:1400px){
-.theexperiecbg{background-size:100% auto; min-height:initial;}
-.videobg{background-size:100% auto; min-height:initial;}
-.booknowbg{background-size:100% auto; min-height:initial;}
-.faqbg{background-size:100% auto; min-height:initial;}
+.theexperiecbg{background-size:cover; min-height:initial;}
+.videobg{background-size:cover; min-height:initial;}
+.booknowbg{background-size:cover; min-height:initial;}
+.faqbg{background-size:cover; min-height:initial;}
 }
 
 @media screen and (max-width:1440px){
@@ -506,7 +506,7 @@ ul.formlisting2 > li{ margin:10px 0;}
 .comfirmedimg{ margin:0 0 20px 0;}
 .checkoutconfirm h2{ margin:0 0 20px 0;}
 .rightclose{transform: scale(0.7);}
-.theexperiecbg{ background-size:auto 100%;}
+.theexperiecbg{ background-size:cover;}
 ul.footernewltrlist > li input[type="text"]{ width:300px;}
 .selectgmt .justselect-list li{line-height: 50px;}
 .selectgmt .justselect-list {top: -73px;}
@@ -603,7 +603,7 @@ ul.footersocial > li {transform: scale(0.6);}
 .tab_wrapper.faqaccordion .content_wrapper .accordian_header{ padding-right:20px; position:relative;}
 .tab_wrapper.faqaccordion .content_wrapper .accordian_header .arrow{ right:10px; top:26px; position:absolute;}
 .faqaccordion{ margin:20px 0 20px 0;}
-.faqbg{ background-position:center top; background-size:auto 100%; }
+.faqbg{ background-position:center top; background-size:cover; }
 .faqarea{ padding:80px 0;}
 .theexperiearea{ padding:80px 0;}
 .videosarea{ padding:80px 0;}
@@ -743,8 +743,13 @@ ul.resmenu > li > a:hover{ color:#811B14;}
     color: rgba(255, 255, 255, 0.2); 
 }
 
+.timeblocklist li {
+  cursor: pointer;
+}
+
 @media screen and (min-width:768px){
   .calendarMonth {
+    font-size: 24px;
     justify-content: space-around;
   }
   .daysOfWeek {
@@ -838,6 +843,14 @@ ul.resmenu > li > a:hover{ color:#811B14;}
   .dateContainer--disabled .dateNumber {
   }
 }
+
+.calendersecrip--hidden {
+  display: none;
+}
+
+.yoursantaexper--hidden {
+  display: none;
+}
 /*
   END CALENDAR CODE
   END CALENDAR CODE
@@ -847,4 +860,131 @@ ul.resmenu > li > a:hover{ color:#811B14;}
   END CALENDAR CODE
   END CALENDAR CODE
   END CALENDAR CODE
+*/
+
+/*
+  START STRIPE PAYMENT FORM
+*/
+
+#payment-form {
+  margin-bottom: 32px;
+  width: 100%;
+  align-self: center;
+  box-shadow: 0px 0px 0px 0.5px rgba(50, 50, 93, 0.1), 0px 2px 5px 0px rgba(50, 50, 93, 0.1), 0px 1px 1.5px 0px rgba(0, 0, 0, 0.07);
+  border-radius: 7px;
+  padding: 40px;
+  /* Buttons and links */
+  /* spinner/processing state, errors */ }
+  #payment-form input {
+    border-radius: 6px;
+    margin-bottom: 6px;
+    padding: 12px;
+    border: 1px solid rgba(50, 50, 93, 0.1);
+    height: 44px;
+    font-size: 16px;
+    width: 100%;
+    background: white; }
+  #payment-form .result-message {
+    line-height: 22px;
+    font-size: 16px; }
+  #payment-form .result-message a {
+    color: #596fd6;
+    font-weight: 600;
+    text-decoration: none; }
+  #payment-form .hidden {
+    display: none; }
+  #payment-form #card-error {
+    color: #697386;
+    text-align: left;
+    font-size: 13px;
+    line-height: 17px;
+    margin-top: 12px; }
+  #payment-form #card-element {
+    border-radius: 4px 4px 0 0;
+    padding: 12px;
+    border: 1px solid rgba(50, 50, 93, 0.1);
+    height: 44px;
+    width: 100%;
+    background: white; }
+  #payment-form #payment-request-button {
+    margin-bottom: 32px; }
+  #payment-form button {
+    background: #5469d4;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    border-radius: 0 0 4px 4px;
+    border: 0;
+    padding: 12px 16px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    display: block;
+    transition: all 0.2s ease;
+    box-shadow: 0px 4px 5.5px 0px rgba(0, 0, 0, 0.07);
+    width: 100%; }
+  #payment-form button:hover {
+    filter: contrast(115%); }
+  #payment-form button:disabled {
+    opacity: 0.5;
+    cursor: default; }
+  #payment-form .spinner,
+  #payment-form .spinner:before,
+  #payment-form .spinner:after {
+    border-radius: 50%; }
+  #payment-form .spinner {
+    color: #ffffff;
+    font-size: 22px;
+    text-indent: -99999px;
+    margin: 0px auto;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    box-shadow: inset 0 0 0 2px;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0); }
+  #payment-form .spinner:before,
+  #payment-form .spinner:after {
+    position: absolute;
+    content: ""; }
+  #payment-form .spinner:before {
+    width: 10.4px;
+    height: 20.4px;
+    background: #5469d4;
+    border-radius: 20.4px 0 0 20.4px;
+    top: -0.2px;
+    left: -0.2px;
+    -webkit-transform-origin: 10.4px 10.2px;
+    transform-origin: 10.4px 10.2px;
+    -webkit-animation: loading 2s infinite ease 1.5s;
+    animation: loading 2s infinite ease 1.5s; }
+  #payment-form .spinner:after {
+    width: 10.4px;
+    height: 10.2px;
+    background: #5469d4;
+    border-radius: 0 10.2px 10.2px 0;
+    top: -0.1px;
+    left: 10.2px;
+    -webkit-transform-origin: 0px 10.2px;
+    transform-origin: 0px 10.2px;
+    -webkit-animation: loading 2s infinite ease;
+    animation: loading 2s infinite ease; }
+
+@-webkit-keyframes loading {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+
+@keyframes loading {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+/*
+    END STRIPE PAYMENT FORM
 */
